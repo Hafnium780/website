@@ -1,8 +1,68 @@
 <style>
-    * { padding: 0px; margin: 0px; }
-    #main-header { width: 100vw; height: 40px; padding: 10px; background-color: #5292DF; }
-    #header-home-button { display: block; width: 40px; height: 40px; background-color: #3272BF; color: white; text-decoration: none; }
+  * {
+    padding: 0px;
+    margin: 0px;
+  }
+  #main-header {
+    display: flex;
+    width: 100vw;
+    height: 40px;
+    padding: 10px;
+    background-color: #5292df;
+    gap: 10px;
+  }
+  #menu-icon {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-color: #3272bf;
+  }
+  #header-home-button {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #3272bf;
+    color: white;
+    text-decoration: none;
+  }
+  #menu {
+    position: absolute;
+    width: 160px;
+    height: 100vh;
+    left: -160px;
+    top: 0px;
+    background-color: #7272df;
+    transition: left ease 200ms;
+  }
+  #menu-close {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: 0px;
+    top: 0px;
+    background-color: #1222ff;
+  }
 </style>
 <div id="main-header">
-    <a id="header-home-button" href="/website/">h</a>
+  <div id="menu-icon">-<br />-<br />-</div>
+  <a id="header-home-button" href="/website/">h</a>
+  <div id="menu">
+    <div id="menu-close">x</div>
+    <a class="page-link" href="/website/test/test.html">test</a>
+  </div>
 </div>
+<script defer>
+  const menuIcon = document.getElementById("menu-icon");
+  const menuClose = document.getElementById("menu-close");
+  const menu = document.getElementById("menu");
+  const menuLeft = menu.style.left;
+  let menuOpen = false;
+
+  const toggleMenu = () => {
+    menuOpen = !menuOpen;
+    menu.style.left = menuOpen ? "0px" : menuLeft;
+  };
+
+  menuIcon.addEventListener("click", toggleMenu);
+  menuClose.addEventListener("click", toggleMenu);
+</script>

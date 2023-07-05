@@ -1,56 +1,104 @@
 <style>
   * {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
   }
+
+  body {
+    font-family: Arial, sans-serif;
+  }
+
   #main-header {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100vw;
-    height: 40px;
-    padding: 10px;
+    height: 60px;
     background-color: #5292df;
+    padding: 10px;
     gap: 10px;
   }
+
   #menu-icon {
     cursor: pointer;
     width: 40px;
     height: 40px;
     background-color: #3272bf;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    border-radius: 4px;
   }
+
   #header-home-button {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 40px;
     height: 40px;
     background-color: #3272bf;
     color: white;
     text-decoration: none;
+    font-size: 20px;
+    border-radius: 4px;
   }
+
   #menu {
     position: absolute;
-    width: 160px;
+    width: 200px;
     height: 100vh;
-    left: -160px;
-    top: 0px;
+    left: -200px;
+    top: 0;
     background-color: #7272df;
     transition: left ease 200ms;
+    padding-top: 60px;
   }
+
   #menu-close {
     position: absolute;
     width: 25px;
     height: 25px;
-    right: 0px;
-    top: 0px;
+    right: 10px;
+    top: 10px;
     background-color: #1222ff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  .page-link {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 200ms;
+  }
+
+  .page-link:hover {
+    background-color: #5292df;
   }
 </style>
+
 <div id="main-header">
-  <div id="menu-icon">-<br />-<br />-</div>
-  <a id="header-home-button" href="/website/">h</a>
+  <div id="menu-icon">&#9776;</div>
+  <a id="header-home-button" href="/website/">H</a>
   <div id="menu">
     <div id="menu-close">x</div>
-    <a class="page-link" href="/website/test/test.html">test</a>
+    <a class="page-link" href="/website/test/test.html">Test Page</a>
+    <a class="page-link" href="#">Menu Item 1</a>
+    <a class="page-link" href="#">Menu Item 2</a>
+    <a class="page-link" href="#">Menu Item 3</a>
   </div>
 </div>
+
 <script defer>
   const menuIcon = document.getElementById("menu-icon");
   const menuClose = document.getElementById("menu-close");
@@ -60,7 +108,7 @@
 
   const toggleMenu = () => {
     menuOpen = !menuOpen;
-    menu.style.left = menuOpen ? "0px" : menuLeft;
+    menu.style.left = menuOpen ? "0" : menuLeft;
   };
 
   menuIcon.addEventListener("click", toggleMenu);
